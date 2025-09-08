@@ -1,0 +1,26 @@
+footer{
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Karla', serif;
+    font-weight: 500;
+    background-color: var(--highlight-color-1);
+    padding: 1rem;
+    color: var(--highlight-color-2);
+}
+
+footer h2{
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+footer ul{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.doormat-nav-container{
+    display: flex;
+    gap: 1rem;
+}

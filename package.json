@@ -19,7 +19,7 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "standard"
+    "extends": "./node_modules/standard/eslintrc.json"
   },
   "browserslist": {
     "production": [
