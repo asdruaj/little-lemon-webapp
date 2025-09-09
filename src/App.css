@@ -20,10 +20,11 @@
 #root{
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+ min-height: 100vh;
 }
 
 main{
-  margin-top: 5rem;
+  margin-top: 4rem;
   flex-grow: 1;
+  min-height: 300vh;
 }

@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer>
       <section className='doormat-nav-container'>
-        <img src='/Assets/icons_assets/Logo.svg' alt='' />
+        <img id='logo' src='/Assets/icons_assets/Logo.svg' alt='Little Lemon Logo' />
         <div className='doormat-nav'>
           <h2>Doormat Navigation</h2>
           <nav>

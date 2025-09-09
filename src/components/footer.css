@@ -24,3 +24,20 @@ footer ul{
     display: flex;
     gap: 1rem;
 }
+
+@media screen and (max-width: 768px) {
+    footer{
+        flex-direction: column;
+        text-align: center;
+        gap: 3rem;
+    }
+    .doormat-nav-container{
+        flex-direction: column;
+    }
+
+    .doormat-nav-container img{
+        max-width: 320px;
+        display: inline;
+        margin: 0 auto;
+    }
+}
