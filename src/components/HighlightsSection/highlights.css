@@ -1,0 +1,19 @@
+.highlightSection{
+       padding-top: 1rem;
+}
+
+.highlightSection h2{
+    font-family: 'Markazi Text', serif;
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.firstRow{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.firstRow button{
+    margin-top: 0.5rem;
+}

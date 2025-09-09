@@ -1,0 +1,56 @@
+.card-container{
+    background-color: var(--highlight-color-2);
+    padding: 1rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    max-width: 320px;
+    border-radius: 16px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    margin: 2rem auto;
+    gap: 1rem;
+    font-family: 'Karla', serif;
+    font-weight: 600;
+}
+.card-container img{
+    max-width: 300px;
+    max-height: 170px;
+    border-radius: 24px;
+    object-fit: cover;
+}
+
+.title-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.title-container h3{
+    font-size: 18px;
+}
+.title-container span{
+    font-size: 18px;
+    color: var(--secondary-color-1);
+}
+
+.card-container p {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.card-container button{
+    font-family: 'Markazi Text', serif;
+    font-weight: 800;
+    font-size: 18px;
+    border: none;
+    text-align: left;
+    padding-left: 1rem;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.card-container button:hover{
+    opacity: 0.5;
+}
+
+.card-container button:active{
+    opacity: 0.5;
+}
