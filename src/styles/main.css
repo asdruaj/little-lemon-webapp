@@ -44,7 +44,16 @@
     margin-top: 4rem;
 }
 
-@media screen and (min-width: 768px) {
+button{
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover{
+    background-color: var(--highlight-color-1) !important;
+    color: var(--highlight-color-2) !important;
+}
+
+@media screen and (min-width: 900px) {
     .hero{
     display: flex;
     justify-content: space-around;

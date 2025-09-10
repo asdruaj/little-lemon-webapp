@@ -6,7 +6,7 @@
 .highlightSection h2{
     font-family: 'Markazi Text', serif;
     font-weight: 600;
-    font-size: 2rem;
+    font-size: 3rem;
 }
 
 .highlightSection .firstRow{
@@ -15,9 +15,6 @@
     align-items: center;
 }
 
-.firstRow button{
-    margin-top: 0.5rem;
-}
 
 /* CAROUSEL */
 
@@ -43,16 +40,9 @@
     margin-top: 4rem;
     margin-inline:  9%;
     position: relative;
+    padding-right: 4rem;
     }
 
-    .highlightSection .firstRow button{
-    margin-right: 13.8%;
-}
-
-.highlightSection h2{
-    margin-top: -7rem;
-
-}
  
 }
 

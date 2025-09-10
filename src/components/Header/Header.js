@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './header.css'
+import '../../styles/header.css'
 import Navbar from './Navbar'
 
 const Header = () => {

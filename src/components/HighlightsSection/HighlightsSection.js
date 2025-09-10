@@ -1,6 +1,6 @@
 import Button from '../Button'
 import HighlightCard from './HighlightCard'
-import './highlights.css'
+import '../../styles/highlights.css'
 
 const HighlightsSection = () => {
   const dishes = [

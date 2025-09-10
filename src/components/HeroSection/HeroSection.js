@@ -12,7 +12,7 @@ const HeroSection = () => {
       </div>
       <div className='image-container'>
 
-        <img src='./Assets/icons_assets/restauranfood.jpg' alt='' />
+        <img src='./Assets/icons_assets/restauranfood.jpg' alt='Server carrying a dish' />
       </div>
     </section>
   )

@@ -1,5 +1,5 @@
 import TestimonialCard from './TestimonialCard'
-import './testimonials.css'
+import '../../styles/testimonials.css'
 
 const Testimonials = () => {
   const people = [

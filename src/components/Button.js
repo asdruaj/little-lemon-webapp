@@ -6,9 +6,10 @@ const Button = ({ children }) => {
     border: '0px',
     fontFamily: "'Karla', serif",
     fontWeight: 700,
-    fontSize: '1rem',
+    fontSize: '1.2rem',
     borderRadius: '16px',
-    padding: '8px 16px'
+    padding: '1rem 2rem',
+    cursor: 'pointer'
   }
   return (
     <button style={buttonStyle}>{children}</button>

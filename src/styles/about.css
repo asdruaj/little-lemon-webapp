@@ -1,0 +1,95 @@
+
+/* about SECTION */
+.about{
+    text-align: center;
+    padding-inline: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 2rem 0;
+    max-width: 100%;
+}
+
+.about h2{
+    font-family: 'Markazi Text', serif;
+    color: var(--primary-color-2);
+    font-size: 5rem;
+}
+
+
+.about p{
+    font-family: 'Karla', serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    line-height: 2rem;
+    color: black;
+}
+.about .first-column{
+    flex: 1 1 auto;
+    max-width: 90%;
+}
+
+.about .image-container{
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    position: relative;
+}
+
+.about img{
+    max-width: 100%;
+    max-height: 455px;
+    height: auto;
+    width: auto;
+    object-fit: cover;
+    display: block;
+    aspect-ratio: 1/1;
+    box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
+    border-radius: 16px;
+}
+.about button{
+    margin-top: 4rem;
+}
+
+@media screen and (min-width: 900px) {
+    .about{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10rem;
+    padding-inline: 10%;
+    margin-bottom: 10rem;
+    text-align: left;
+    gap: 2rem;
+    align-items: center;
+        
+    }
+
+     .about .first-column {
+    flex: 0 1 50%; /* Make the first column take up half the space */
+  }
+
+    .about .image-container{
+        flex-direction: row;
+        margin-right: 15%;
+        margin-top: 10rem;
+    }
+
+    .about .image-container img {
+        max-width: 320px;
+        max-height: 455px;
+        height: auto;
+        width: auto;
+        object-fit: cover;
+        display: block;
+    }
+
+    .about .image-container .topImg{
+        position: absolute;
+        top: -50%;
+        right: -50%;
+    }
+
+}
