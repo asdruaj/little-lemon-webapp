@@ -1,5 +1,6 @@
 .highlightSection{
-       padding-top: 1rem;
+       padding-block: 1rem;
+       position: relative;
 }
 
 .highlightSection h2{
@@ -8,7 +9,7 @@
     font-size: 2rem;
 }
 
-.firstRow{
+.highlightSection .firstRow{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,3 +18,41 @@
 .firstRow button{
     margin-top: 0.5rem;
 }
+
+/* CAROUSEL */
+
+.carousel{
+    width: 100%;
+    padding: 0 2rem;
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+@media screen and (min-width: 764px) {
+    .highlightSection .firstRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 4rem;
+    margin-inline:  9%;
+    position: relative;
+    }
+
+    .highlightSection .firstRow button{
+    margin-right: 13.8%;
+}
+
+.highlightSection h2{
+    margin-top: -7rem;
+
+}
+ 
+}
+

@@ -27,11 +27,12 @@
     margin-bottom: 1rem;
 }
 .hero .first-column{
-    flex: 0 1 440px;
+    flex: 0 1 600px;
 }
 
 .hero img{
-    max-width: 455px;
+    width: 455px;
+    object-fit: cover;
     max-height: 455px;
     margin-top: 10px;
     border-radius: 16px;
@@ -40,7 +41,6 @@
 
 }
 .hero button{
-
     margin-top: 4rem;
 }
 

@@ -3,13 +3,16 @@
     padding: 1rem 0.5rem;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     max-width: 320px;
+    height: 500px;
     border-radius: 16px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     margin: 2rem auto;
     gap: 1rem;
     font-family: 'Karla', serif;
     font-weight: 600;
+    flex: 1 0 300px;
 }
 .card-container img{
     max-width: 300px;

@@ -33,11 +33,14 @@ const HighlightsSection = () => {
         <h2>This weeks specials!</h2>
         <Button>Order Online</Button>
       </div>
-      {
+      <div className='carousel'>
+        {
         dishes.map(dish => (
           <HighlightCard key={dish.id} title={dish.title} price={dish.price} imgSrc={dish.imgSrc} description={dish.description} />
         ))
       }
+
+      </div>
     </section>
 
   )

@@ -5,7 +5,7 @@ const Button = ({ children }) => {
     backgroundColor: 'var(--primary-color-2)',
     border: '0px',
     fontFamily: "'Karla', serif",
-    fontWeight: 500,
+    fontWeight: 700,
     fontSize: '1rem',
     borderRadius: '16px',
     padding: '8px 16px'
