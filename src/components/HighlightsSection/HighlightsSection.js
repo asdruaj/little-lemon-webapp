@@ -2,7 +2,7 @@ import Button from '../Button'
 import HighlightCard from './HighlightCard'
 import '../../styles/highlights.css'
 
-const HighlightsSection = () => {
+const HighlightsSection = ({ navigate }) => {
   const dishes = [
     {
       id: 1,
@@ -31,7 +31,7 @@ const HighlightsSection = () => {
     <section className='highlightSection'>
       <div className='firstRow'>
         <h2>This weeks specials!</h2>
-        <Button>Order Online</Button>
+        <Button onClick={() => navigate('menu')}>Order Online</Button>
       </div>
       <div className='carousel'>
         {

@@ -4,11 +4,14 @@ import '../styles/main.css'
 
 import Testimonials from '../components/TestimonialsSection/Testimonials'
 import AboutSection from '../AboutSection/AboutSection'
+import { useNavigate } from 'react-router'
 const Main = () => {
+  const navigate = useNavigate()
+
   return (
     <main>
-      <HeroSection />
-      <HighlightsSection />
+      <HeroSection navigate={navigate} />
+      <HighlightsSection navigate={navigate} />
       <Testimonials />
       <AboutSection />
     </main>

@@ -27,7 +27,7 @@
 }
 .about .first-column{
     flex: 1 1 auto;
-    max-width: 90%;
+    max-width: 100%;
 }
 
 .about .image-container{

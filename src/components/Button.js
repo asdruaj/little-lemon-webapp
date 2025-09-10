@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Button = ({ children }) => {
+const Button = ({ children, onClick }) => {
   const buttonStyle = {
     backgroundColor: 'var(--primary-color-2)',
     border: '0px',
@@ -12,7 +12,7 @@ const Button = ({ children }) => {
     cursor: 'pointer'
   }
   return (
-    <button style={buttonStyle}>{children}</button>
+    <button onClick={onClick} style={buttonStyle}>{children}</button>
   )
 }
 

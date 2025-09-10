@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import '../../styles/header.css'
 import Navbar from './Navbar'
+import { Link } from 'react-router'
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
     <header>
-      <img src='/Assets/icons_assets/Logo.svg' alt='little lemon logo' />
+      <Link to='/'><img src='/Assets/icons_assets/Logo.svg' alt='little lemon logo' /></Link>
       <img onClick={() => setIsOpen(!isOpen)} className='hamburguer-icon' src='/Assets/icons_assets/icon_hamburger_menu.svg' alt='little lemon logo' />
 
       <Navbar isOpen={isOpen} />
