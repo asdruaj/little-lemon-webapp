@@ -1,9 +1,10 @@
 import React from 'react'
+import BookingSection from '../components/bookingSection.js/BookingSection'
 
 const Booking = () => {
   return (
     <main>
-      <h1>booking</h1>
+      <BookingSection />
     </main>
   )
 }

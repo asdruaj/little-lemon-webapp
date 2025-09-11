@@ -3,9 +3,9 @@ import HighlightsSection from '../components/HighlightsSection/HighlightsSection
 import '../styles/main.css'
 
 import Testimonials from '../components/TestimonialsSection/Testimonials'
-import AboutSection from '../AboutSection/AboutSection'
+import AboutSection from '../components/AboutSection/AboutSection'
 import { useNavigate } from 'react-router'
-const Main = () => {
+const Homepage = () => {
   const navigate = useNavigate()
 
   return (
@@ -18,4 +18,4 @@ const Main = () => {
   )
 }
 
-export default Main
+export default Homepage
