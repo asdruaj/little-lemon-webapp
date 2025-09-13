@@ -22,7 +22,7 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "./node_modules/standard/eslintrc.json"
+    "extends": ["./node_modules/standard/eslintrc.json", "plugin:jest/recommended"]
   },
   "browserslist": {
     "production": [
