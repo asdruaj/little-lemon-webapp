@@ -1,5 +1,5 @@
 import BookingForm from './BookingForm'
-import './booking.css'
+import '../../styles/booking.css'
 
 const BookingSection = ({ availableTimes }) => {
   return (

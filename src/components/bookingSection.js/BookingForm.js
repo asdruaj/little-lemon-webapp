@@ -1,6 +1,6 @@
 import * as Yup from 'yup'
 import { useFormik } from 'formik'
-import './booking.css'
+import '../../styles/booking.css'
 import WarningIcon from './WarningIcon'
 import { useState } from 'react'
 import BackIcon from './BackIcon'
@@ -39,7 +39,7 @@ const BookingForm = ({ availableTimes }) => {
     },
     onSubmit: values => {
       // eslint-disable-next-line no-undef
-      alert(JSON.stringify(values, 1))
+      alert(JSON.stringify(values, null, 1))
     },
     validationSchema
   })
@@ -73,7 +73,7 @@ const BookingForm = ({ availableTimes }) => {
           <>
             <div className='form-element'>
               <label htmlFor='date'>Choose date </label>
-              <input type='date' name='date' id='date' {...formik.getFieldProps('date')} />
+              <input type='date' name='date' id='date' required {...formik.getFieldProps('date')} />
               {formik.touched.date && formik.errors.date &&
                 <div className='error-container'>
                   <WarningIcon />
@@ -82,10 +82,10 @@ const BookingForm = ({ availableTimes }) => {
             </div>
             <div className='form-element'>
               <label htmlFor='time'>Choose time</label>
-              <select name='time' id='time' {...formik.getFieldProps('time')}>
+              <select name='time' id='time' required {...formik.getFieldProps('time')}>
                 <option value=''>Choose an option...</option>
                 {
-              availableTimes.map((time, i) => (
+              availableTimes?.map((time, i) => (
                 <option key={i} value={time}>{time}</option>
               ))
             }
@@ -98,7 +98,7 @@ const BookingForm = ({ availableTimes }) => {
             </div>
             <div className='form-element'>
               <label htmlFor='guests'>Number of guests</label>
-              <input type='number' name='guests' id='guests' min='1' max='10' {...formik.getFieldProps('guests')} />
+              <input type='number' name='guests' id='guests' min='1' max='10' required {...formik.getFieldProps('guests')} />
               {formik.touched.guests && formik.errors.guests &&
                 <div className='error-container'>
                   <WarningIcon />
@@ -107,7 +107,7 @@ const BookingForm = ({ availableTimes }) => {
             </div>
             <div className='form-element'>
               <label htmlFor='ocassion'>Ocassion</label>
-              <select name='ocassion' id='ocassion' {...formik.getFieldProps('ocassion')}>
+              <select name='ocassion' id='ocassion' required {...formik.getFieldProps('ocassion')}>
                 <option value=''>Choose an option...</option>
                 <option value='Birthday'>Birthday</option>
                 <option value='Anniversary'>Anniversary</option>
@@ -129,7 +129,7 @@ const BookingForm = ({ availableTimes }) => {
           <>
             <div className='form-element'>
               <label htmlFor='firstName'>First name </label>
-              <input name='firstName' id='firstName' {...formik.getFieldProps('firstName')} />
+              <input name='firstName' id='firstName' required {...formik.getFieldProps('firstName')} />
               {formik.touched.firstName && formik.errors.firstName &&
                 <div className='error-container'>
                   <WarningIcon />
@@ -139,7 +139,7 @@ const BookingForm = ({ availableTimes }) => {
 
             <div className='form-element'>
               <label htmlFor='lastName'>Last name </label>
-              <input name='lastName' id='lastName' {...formik.getFieldProps('lastName')} />
+              <input name='lastName' id='lastName' required {...formik.getFieldProps('lastName')} />
               {formik.touched.lastName && formik.errors.lastName &&
                 <div className='error-container'>
                   <WarningIcon />
@@ -149,7 +149,7 @@ const BookingForm = ({ availableTimes }) => {
 
             <div className='form-element'>
               <label htmlFor='email'>Email </label>
-              <input name='email' id='email' {...formik.getFieldProps('email')} />
+              <input name='email' id='email' required {...formik.getFieldProps('email')} />
               {formik.touched.email && formik.errors.email &&
                 <div className='error-container'>
                   <WarningIcon />
@@ -159,7 +159,7 @@ const BookingForm = ({ availableTimes }) => {
 
             <div className='form-element'>
               <label htmlFor='phoneNumber'>Phone number </label>
-              <input name='phoneNumber' id='phoneNumber' {...formik.getFieldProps('phoneNumber')} />
+              <input name='phoneNumber' id='phoneNumber' required {...formik.getFieldProps('phoneNumber')} />
               {formik.touched.phoneNumber && formik.errors.phoneNumber &&
                 <div className='error-container'>
                   <WarningIcon />
