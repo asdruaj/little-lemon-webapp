@@ -1,0 +1,101 @@
+.booking h1{
+    margin-left: -2rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color-2);
+    font-family: 'Markazi Text', serif;
+    font-size: 3rem;
+}
+
+.booking{
+    background-color: var(--primary-color-1);
+    padding: 2rem 4rem;
+    font-family: 'Karla', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--highlight-color-2);
+    flex-grow: 1;
+    position: relative;
+}
+
+.booking-form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-element{
+    display: grid;
+    gap: 0.5rem;
+}
+
+.form-element input, .booking-form select{
+    min-height: 2rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--highlight-color-2);
+    font-size: 1rem;
+    color: var(--highlight-color-2);
+    min-width: 20%;
+}
+
+.form-element select option{
+    color: black;
+}
+
+.form-element label{
+    font-size: 1.2rem;
+}
+
+.form-element .error-container{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1rem;
+    color: var(--secondary-color-1);
+    font-weight: 300;
+}
+
+.booking-form button {
+    font-size: 1.2rem;
+    border-style: solid;
+    border-radius: 16px;
+    border-width: 1px;
+    padding: 1rem 2rem;
+    background-color: var(--primary-color-2);
+    color: var(--highlight-color-1);
+    border: none;
+    font-family: 'Karla', serif;
+    font-weight: 700;
+    display: block;
+    min-width: 70%;
+    margin: 4rem auto 0 auto;
+}
+
+.back-icon{
+    position: absolute;
+    width: 3rem;
+    height: auto;
+    color: var(--primary-color-2);
+    top: 2rem;
+    right: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.back-icon:hover{
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+@media screen and (min-width: 764px) {
+    .booking{
+        padding-inline: 30%;
+    }
+
+    .back-icon{
+        right: 30%;
+    }
+}

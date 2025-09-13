@@ -1,10 +1,15 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import '../../styles/header.css'
 import Navbar from './Navbar'
-import { Link } from 'react-router'
+import { Link, useLocation } from 'react-router'
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    setIsOpen(false)
+  }, [pathname])
 
   return (
     <header>

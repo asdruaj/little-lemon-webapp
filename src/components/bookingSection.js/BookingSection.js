@@ -1,10 +1,11 @@
-import '../../styles/main.css'
 import BookingForm from './BookingForm'
+import './booking.css'
 
-const BookingSection = () => {
+const BookingSection = ({ availableTimes }) => {
   return (
-    <section className='hero booking'>
-      <BookingForm />
+    <section className='booking'>
+      <h1>Book a Table!</h1>
+      <BookingForm availableTimes={availableTimes} />
     </section>
   )
 }

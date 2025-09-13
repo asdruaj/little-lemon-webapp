@@ -1,16 +1,21 @@
-import React from 'react'
 import * as Yup from 'yup'
 import { useFormik } from 'formik'
+import './booking.css'
+import WarningIcon from './WarningIcon'
+import { useState } from 'react'
+import BackIcon from './BackIcon'
+const BookingForm = ({ availableTimes }) => {
+  const [step, setStep] = useState(1)
 
-const BookingForm = () => {
   const validationSchema = Yup.object({
     date: Yup.date()
+      .min(new Date().toISOString().slice(0, 10), 'Date must be equal or latter than today')
       .required('Please choose a date'),
     time: Yup.string()
       .required('Please select an option'),
     guests: Yup.number()
-      .min('1 guest minimum')
-      .max('10 guests max')
+      .min(1, '1 guest minimum')
+      .max(10, '10 guests max')
       .required('Please, choose a number of guests'),
     ocassion: Yup.string()
       .required('Please, select an option'),
@@ -23,7 +28,7 @@ const BookingForm = () => {
 
   const formik = useFormik({
     initialValues: {
-      date: new Date(),
+      date: new Date().toISOString().slice(0, 10),
       time: '',
       guests: 1,
       ocassion: '',
@@ -34,93 +39,144 @@ const BookingForm = () => {
     },
     onSubmit: values => {
       // eslint-disable-next-line no-undef
-      alert(JSON.stringify(values, null, 2))
+      alert(JSON.stringify(values, 1))
     },
     validationSchema
   })
 
+  const handleNext = async () => {
+    const errors = await formik.validateForm()
+
+    const currentStepFields = ['date', 'time', 'guests', 'ocassion']
+
+    const hasErrors = currentStepFields.some(field => errors[field])
+
+    const touchedEntries = currentStepFields.map(field => (
+      [field, true]
+    ))
+
+    const touchedObject = Object.fromEntries(touchedEntries)
+
+    formik.setTouched(touchedObject)
+
+    if (!hasErrors) {
+      setStep(2)
+    }
+  }
+
   return (
-    <form onSubmit={formik.handleSubmit}>
+    <>
+      <form className='booking-form' onSubmit={formik.handleSubmit} aria-label='Book a table'>
 
-      <div>
-        <label htmlFor='date'>Choose date </label>
-        <input type='date' name='date' id='date' {...formik.getFieldProps('date')} />
+        {
+        step === 1 &&
+          <>
+            <div className='form-element'>
+              <label htmlFor='date'>Choose date </label>
+              <input type='date' name='date' id='date' {...formik.getFieldProps('date')} />
+              {formik.touched.date && formik.errors.date &&
+                <div className='error-container'>
+                  <WarningIcon />
+                  <span className='error'>{formik.errors.date}</span>
+                </div>}
+            </div>
+            <div className='form-element'>
+              <label htmlFor='time'>Choose time</label>
+              <select name='time' id='time' {...formik.getFieldProps('time')}>
+                <option value=''>Choose an option...</option>
+                {
+              availableTimes.map((time, i) => (
+                <option key={i} value={time}>{time}</option>
+              ))
+            }
+              </select>
+              {formik.touched.time && formik.errors.time &&
+                <div className='error-container'>
+                  <WarningIcon />
+                  <span className='error'>{formik.errors.time}</span>
+                </div>}
+            </div>
+            <div className='form-element'>
+              <label htmlFor='guests'>Number of guests</label>
+              <input type='number' name='guests' id='guests' min='1' max='10' {...formik.getFieldProps('guests')} />
+              {formik.touched.guests && formik.errors.guests &&
+                <div className='error-container'>
+                  <WarningIcon />
+                  <span className='error'>{formik.errors.guests}</span>
+                </div>}
+            </div>
+            <div className='form-element'>
+              <label htmlFor='ocassion'>Ocassion</label>
+              <select name='ocassion' id='ocassion' {...formik.getFieldProps('ocassion')}>
+                <option value=''>Choose an option...</option>
+                <option value='Birthday'>Birthday</option>
+                <option value='Anniversary'>Anniversary</option>
+                <option value='Engagement'>Engagement</option>
+                <option value='Others'>Others</option>
+              </select>
+              {formik.touched.ocassion && formik.errors.ocassion &&
+                <div className='error-container'>
+                  <WarningIcon />
+                  <span className='error'>{formik.errors.ocassion}</span>
+                </div>}
+            </div>
+            <button type='button' onClick={handleNext}>Next</button>
+          </>
+      }
 
-        {formik.touched.date && formik.errors.date &&
-          <span>{formik.errors.date}</span>}
-      </div>
+        {
+        step === 2 &&
+          <>
+            <div className='form-element'>
+              <label htmlFor='firstName'>First name </label>
+              <input name='firstName' id='firstName' {...formik.getFieldProps('firstName')} />
+              {formik.touched.firstName && formik.errors.firstName &&
+                <div className='error-container'>
+                  <WarningIcon />
+                  <span className='error'> {formik.errors.firstName}</span>
+                </div>}
+            </div>
 
-      <div>
-        <label htmlFor='time'>Choose time</label>
-        <select name='time' id='time' {...formik.getFieldProps('time')}>
-          <option value='17:00'>17:00</option>
-          <option value='18:00'>18:00</option>
-          <option value='19:00'>19:00</option>
-          <option value='20:00'>20:00</option>
-          <option value='21:00'>21:00</option>
-          <option value='22:00'>22:00</option>
-        </select>
-        {formik.touched.time && formik.errors.time &&
-          <span>{formik.errors.time}</span>}
-      </div>
+            <div className='form-element'>
+              <label htmlFor='lastName'>Last name </label>
+              <input name='lastName' id='lastName' {...formik.getFieldProps('lastName')} />
+              {formik.touched.lastName && formik.errors.lastName &&
+                <div className='error-container'>
+                  <WarningIcon />
+                  <span className='error'>{formik.errors.lastName}</span>
+                </div>}
+            </div>
 
-      <div>
-        <label htmlFor='guests'>Number of guests</label>
-        <input type='number' name='guests' id='guests' min='1' max='2' {...formik.getFieldProps('guests')} />
-        {formik.touched.guests && formik.errors.guests &&
-          <span>{formik.errors.guests}</span>}
-      </div>
+            <div className='form-element'>
+              <label htmlFor='email'>Email </label>
+              <input name='email' id='email' {...formik.getFieldProps('email')} />
+              {formik.touched.email && formik.errors.email &&
+                <div className='error-container'>
+                  <WarningIcon />
+                  <span>{formik.errors.email}</span>
+                </div>}
+            </div>
 
-      <div>
-        <label htmlFor='ocassion'>Ocassion</label>
-        <select name='ocassion' id='ocassion' {...formik.getFieldProps('ocassion')}>
-          <option value='Birthday'>Birthday</option>
-          <option value='Anniversary'>Anniversary</option>
-          <option value='Engagement'>Engagement</option>
-          <option value='Others'>Others</option>
-        </select>
+            <div className='form-element'>
+              <label htmlFor='phoneNumber'>Phone number </label>
+              <input name='phoneNumber' id='phoneNumber' {...formik.getFieldProps('phoneNumber')} />
+              {formik.touched.phoneNumber && formik.errors.phoneNumber &&
+                <div className='error-container'>
+                  <WarningIcon />
+                  <span className='error'>{formik.errors.phoneNumber}</span>
+                </div>}
+            </div>
 
-        {formik.touched.ocassion && formik.errors.ocassion &&
-          <span>{formik.errors.ocassion}</span>}
-      </div>
+            <button type='submit'>Reserve!</button>
+          </>
+      }
 
-      <button>Next</button>
+      </form>
 
-      <div>
-        <label htmlFor='firstName'>First name </label>
-        <input name='firstName' id='firstName' {...formik.getFieldProps('firstName')} />
+      {step === 2 &&
+        <BackIcon onClick={() => setStep(1)} className='back-icon' />}
+    </>
 
-        {formik.touched.firstName && formik.errors.firstName &&
-          <span>{formik.errors.firstName}</span>}
-      </div>
-
-      <div>
-        <label htmlFor='lastName'>First name </label>
-        <input name='lastName' id='lastName' {...formik.getFieldProps('lastName')} />
-
-        {formik.touched.lastName && formik.errors.lastName &&
-          <span>{formik.errors.lastName}</span>}
-      </div>
-
-      <div>
-        <label htmlFor='email'>First name </label>
-        <input name='email' id='email' {...formik.getFieldProps('email')} />
-
-        {formik.touched.email && formik.errors.email &&
-          <span>{formik.errors.lastName}</span>}
-      </div>
-
-      <div>
-        <label htmlFor='phone'>First name </label>
-        <input name='phone' id='phone' {...formik.getFieldProps('phone')} />
-
-        {formik.touched.phone && formik.errors.phone &&
-          <span>{formik.errors.phone}</span>}
-      </div>
-
-      <button type='submit'>Reserve!</button>
-
-    </form>
   )
 }
 
