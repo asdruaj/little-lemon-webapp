@@ -109,13 +109,43 @@
 }
 
 .reservation{
-    flex: 1 1 300px;
+    flex: 1 1 auto;
     background-color: var(--highlight-color-2);
     padding: 1rem 2rem;
     color: var(--highlight-color-1);
     border-radius: 16px;
     box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3);
+    font-weight: 300;
+    font-size: 1.5rem;
 }
+
+.reservation h2{
+    font-size: 1.2rem;
+}
+
+.reservation .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.reservation span{
+    color: var(--secondary-color-1);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.reservation p{
+    display: flex;
+    align-items: start;
+    gap: 2rem;
+}
+.reservation p::before{
+    content: '◌';
+
+}
+
 
 /* CONFIRMED BOOKING COMPONENT */
 

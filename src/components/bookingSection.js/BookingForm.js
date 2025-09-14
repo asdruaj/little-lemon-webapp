@@ -51,11 +51,9 @@ const BookingForm = ({ availableTimes, dispatch }) => {
       (submitAPI(values)).then(() => {
         setFormData(values)
         setStep(3)
-        // eslint-disable-next-line no-undef
-        const reservations = JSON.parse(localStorage.getItem('reservations')) || []
+        const reservations = JSON.parse(window.localStorage.getItem('reservations')) || []
         reservations.push(values)
-        // eslint-disable-next-line no-undef
-        localStorage.setItem('reservations', JSON.stringify(reservations))
+        window.localStorage.setItem('reservations', JSON.stringify(reservations))
       })
     },
     validationSchema
