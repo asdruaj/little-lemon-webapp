@@ -4,8 +4,18 @@ import '../../styles/booking.css'
 import WarningIcon from './WarningIcon'
 import { useState } from 'react'
 import BackIcon from './BackIcon'
-const BookingForm = ({ availableTimes }) => {
+import { submitAPI } from '../../helpers/api'
+import ConfirmedBooking from './ConfirmedBooking'
+
+const BookingForm = ({ availableTimes, dispatch }) => {
   const [step, setStep] = useState(1)
+  const [formData, setFormData] = useState({})
+
+  const handleDateChange = (e) => {
+    formik.handleChange(e)
+
+    dispatch({ type: 'UPDATE_TIMES', payload: e.target.value })
+  }
 
   const validationSchema = Yup.object({
     date: Yup.date()
@@ -37,9 +47,16 @@ const BookingForm = ({ availableTimes }) => {
       email: '',
       phoneNumber: ''
     },
-    onSubmit: values => {
-      // eslint-disable-next-line no-undef
-      alert(JSON.stringify(values, null, 1))
+    onSubmit: (values) => {
+      (submitAPI(values)).then(() => {
+        setFormData(values)
+        setStep(3)
+        // eslint-disable-next-line no-undef
+        const reservations = JSON.parse(localStorage.getItem('reservations')) || []
+        reservations.push(values)
+        // eslint-disable-next-line no-undef
+        localStorage.setItem('reservations', JSON.stringify(reservations))
+      })
     },
     validationSchema
   })
@@ -66,14 +83,16 @@ const BookingForm = ({ availableTimes }) => {
 
   return (
     <>
+      <h1>{step === 3 ? "We're all set!" : 'Book a Table!'}</h1>
+
       <form className='booking-form' onSubmit={formik.handleSubmit} aria-label='Book a table'>
 
         {
         step === 1 &&
           <>
             <div className='form-element'>
-              <label htmlFor='date'>Choose date </label>
-              <input type='date' name='date' id='date' required {...formik.getFieldProps('date')} />
+              <label htmlFor='date'>Choose date</label>
+              <input type='date' name='date' id='date' required {...formik.getFieldProps('date')} onChange={handleDateChange} />
               {formik.touched.date && formik.errors.date &&
                 <div className='error-container'>
                   <WarningIcon />
@@ -120,7 +139,7 @@ const BookingForm = ({ availableTimes }) => {
                   <span className='error'>{formik.errors.ocassion}</span>
                 </div>}
             </div>
-            <button type='button' onClick={handleNext}>Next</button>
+            <button name='next' type='button' onClick={handleNext}>Next</button>
           </>
       }
 
@@ -128,7 +147,7 @@ const BookingForm = ({ availableTimes }) => {
         step === 2 &&
           <>
             <div className='form-element'>
-              <label htmlFor='firstName'>First name </label>
+              <label htmlFor='firstName'>First name</label>
               <input name='firstName' id='firstName' required {...formik.getFieldProps('firstName')} />
               {formik.touched.firstName && formik.errors.firstName &&
                 <div className='error-container'>
@@ -138,7 +157,7 @@ const BookingForm = ({ availableTimes }) => {
             </div>
 
             <div className='form-element'>
-              <label htmlFor='lastName'>Last name </label>
+              <label htmlFor='lastName'>Last name</label>
               <input name='lastName' id='lastName' required {...formik.getFieldProps('lastName')} />
               {formik.touched.lastName && formik.errors.lastName &&
                 <div className='error-container'>
@@ -148,7 +167,7 @@ const BookingForm = ({ availableTimes }) => {
             </div>
 
             <div className='form-element'>
-              <label htmlFor='email'>Email </label>
+              <label htmlFor='email'>Email</label>
               <input name='email' id='email' required {...formik.getFieldProps('email')} />
               {formik.touched.email && formik.errors.email &&
                 <div className='error-container'>
@@ -158,7 +177,7 @@ const BookingForm = ({ availableTimes }) => {
             </div>
 
             <div className='form-element'>
-              <label htmlFor='phoneNumber'>Phone number </label>
+              <label htmlFor='phoneNumber'>Phone number</label>
               <input name='phoneNumber' id='phoneNumber' required {...formik.getFieldProps('phoneNumber')} />
               {formik.touched.phoneNumber && formik.errors.phoneNumber &&
                 <div className='error-container'>
@@ -175,6 +194,11 @@ const BookingForm = ({ availableTimes }) => {
 
       {step === 2 &&
         <BackIcon onClick={() => setStep(1)} className='back-icon' />}
+
+      {
+          step === 3 &&
+            <ConfirmedBooking data={formData} />
+        }
     </>
 
   )

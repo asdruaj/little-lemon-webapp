@@ -58,7 +58,7 @@
     font-weight: 300;
 }
 
-.booking-form button {
+.booking button{
     font-size: 1.2rem;
     border-style: solid;
     border-radius: 16px;
@@ -97,6 +97,54 @@
     opacity: 0.7;
     transform: scale(1.1);
 }
+
+/* Reservations Table component */
+
+.reservations-container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+}
+
+.reservation{
+    flex: 1 1 300px;
+    background-color: var(--highlight-color-2);
+    padding: 1rem 2rem;
+    color: var(--highlight-color-1);
+    border-radius: 16px;
+    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* CONFIRMED BOOKING COMPONENT */
+
+.confirmed-container{
+    display: grid;
+    place-items: center;
+}
+
+.confirmed-container{
+ font-family: 'Karla', serif;
+ text-align: center;
+}
+
+.confirmed-container h2{
+    margin-top: 2rem;
+    color: var(--primary-color-2);
+}
+.confirmed-container h3{
+    margin-block: 2rem;
+    font-size: 1.5rem;
+}
+
+.confirmed-container li{
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 300;
+
+}
+
 
 @media screen and (min-width: 764px) {
     .booking{

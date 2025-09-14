@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import '../../styles/header.css'
 import Navbar from './Navbar'
 import { Link, useLocation } from 'react-router'
