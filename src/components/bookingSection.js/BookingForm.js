@@ -7,7 +7,7 @@ import BackIcon from './BackIcon'
 import { submitAPI } from '../../helpers/api'
 import ConfirmedBooking from './ConfirmedBooking'
 
-const BookingForm = ({ availableTimes, dispatch }) => {
+const BookingForm = ({ availableTimes, dispatch, data }) => {
   const [step, setStep] = useState(1)
   const [formData, setFormData] = useState({})
 
@@ -81,7 +81,7 @@ const BookingForm = ({ availableTimes, dispatch }) => {
 
   return (
     <>
-      <h1>{step === 1 && 'Book a Table'} {step === 2 && 'Almost there!'} {step === 3 && "We're all set!"}</h1>
+      <h1 id='heading'>{step === 1 && 'Book a Table'}{step === 2 && 'Almost there!'}{step === 3 && "We're all set!"}</h1>
 
       <form className='booking-form' onSubmit={formik.handleSubmit} aria-label='Book a table'>
 
@@ -184,7 +184,7 @@ const BookingForm = ({ availableTimes, dispatch }) => {
                 </div>}
             </div>
 
-            <button type='submit'>Reserve!</button>
+            <button type='submit' name='reserve'>Reserve!</button>
           </>
       }
 

@@ -1,6 +1,6 @@
 import BookingForm from './BookingForm'
 import '../../styles/booking.css'
-import { Fragment, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const BookingSection = ({ availableTimes, dispatch }) => {
   const reservations = JSON.parse(window.localStorage.getItem('reservations')) || []
