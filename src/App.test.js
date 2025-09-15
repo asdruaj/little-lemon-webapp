@@ -47,8 +47,8 @@ describe('BookingForm Multi-step Form', () => {
     render(<WrappedBookingForm />)
 
     // 2. Fill out Step 1
-    fireEvent.change(screen.getByLabelText(/Choose date/i), { target: { value: '2025-10-14' } })
-    fireEvent.change(screen.getByLabelText(/Choose time/i), { target: { value: '17:00' } })
+    fireEvent.change(screen.getByLabelText(/Choose a date/i), { target: { value: '2025-10-14' } })
+    fireEvent.change(screen.getByLabelText(/Choose a time/i), { target: { value: '17:00' } })
     fireEvent.change(screen.getByLabelText(/Number of guests/i), { target: { value: '4' } })
     fireEvent.change(screen.getByLabelText(/Ocassion/i), { target: { value: 'Anniversary' } })
 

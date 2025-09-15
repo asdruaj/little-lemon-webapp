@@ -18,7 +18,6 @@ export const updateTimes = (state, action) => {
 }
 
 const Booking = () => {
-  // eslint-disable-next-line no-unused-vars
   const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes())
 
   return (

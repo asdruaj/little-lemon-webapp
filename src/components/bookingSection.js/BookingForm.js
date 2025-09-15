@@ -81,7 +81,7 @@ const BookingForm = ({ availableTimes, dispatch }) => {
 
   return (
     <>
-      <h1>{step === 3 ? "We're all set!" : 'Book a Table!'}</h1>
+      <h1>{step === 1 && 'Book a Table'} {step === 2 && 'Almost there!'} {step === 3 && "We're all set!"}</h1>
 
       <form className='booking-form' onSubmit={formik.handleSubmit} aria-label='Book a table'>
 
@@ -89,7 +89,7 @@ const BookingForm = ({ availableTimes, dispatch }) => {
         step === 1 &&
           <>
             <div className='form-element'>
-              <label htmlFor='date'>Choose date</label>
+              <label htmlFor='date'>Choose a date</label>
               <input type='date' name='date' id='date' required {...formik.getFieldProps('date')} onChange={handleDateChange} />
               {formik.touched.date && formik.errors.date &&
                 <div className='error-container'>
@@ -98,7 +98,7 @@ const BookingForm = ({ availableTimes, dispatch }) => {
                 </div>}
             </div>
             <div className='form-element'>
-              <label htmlFor='time'>Choose time</label>
+              <label htmlFor='time'>Choose a time</label>
               <select name='time' id='time' required {...formik.getFieldProps('time')}>
                 <option value=''>Choose an option...</option>
                 {
