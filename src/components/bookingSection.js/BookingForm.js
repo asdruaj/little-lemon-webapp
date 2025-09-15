@@ -82,7 +82,6 @@ const BookingForm = ({ availableTimes, dispatch, data }) => {
   return (
     <>
       <h1 id='heading'>{step === 1 && 'Book a Table'}{step === 2 && 'Almost there!'}{step === 3 && "We're all set!"}</h1>
-
       <form className='booking-form' onSubmit={formik.handleSubmit} aria-label='Book a table'>
 
         {

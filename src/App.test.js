@@ -24,8 +24,8 @@ test('Renders the BookingForm heading', () => {
 })
 
 jest.mock('./helpers/api.js', () => ({
-  ...jest.requireActual('./helpers/api.js'), // Use the real fetchAPI if needed
-  submitAPI: jest.fn(() => (true)) // Mock submitAPI to always resolve
+  ...jest.requireActual('./helpers/api.js'),
+  submitAPI: jest.fn(() => Promise.resolve(true)) // <-- async!
 }))
 
 describe('Times functions', () => {
@@ -129,6 +129,11 @@ describe('BookingForm Multi-step Form', () => {
 
     fireEvent.submit(screen.getByRole('form'))
 
+    await waitFor(() => {
+      // Adjust this matcher to your actual confirmation UI
+      expect(screen.getByRole('heading', { name: /almost there!/i })).toBeInTheDocument()
+    })
+
     // Check API call
     await waitFor(() => {
       expect(api.submitAPI).toHaveBeenCalledWith({
@@ -141,10 +146,7 @@ describe('BookingForm Multi-step Form', () => {
         email: 'jane.doe@example.com',
         phoneNumber: '1234567890'
       })
-    })
 
-    // 8. Now also wait for localStorage.setItem to be called
-    await waitFor(() => {
       window.localStorage.setItem(
         'reservations',
         JSON.stringify([
@@ -160,6 +162,11 @@ describe('BookingForm Multi-step Form', () => {
           }
         ])
       )
+    })
+
+    // 8. Now also wait for localStorage.setItem to be called
+
+    await waitFor(() => {
       expect(window.localStorage.setItem).toHaveBeenCalledWith(
         'reservations',
         JSON.stringify([
