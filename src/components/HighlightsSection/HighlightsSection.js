@@ -13,7 +13,7 @@ const HighlightsSection = ({ navigate }) => {
     },
     {
       id: 2,
-      imgSrc: 'Assets/icons_assets/Bruchetta.svg',
+      imgSrc: 'Assets/icons_assets/bruchetta.svg',
       title: 'Bruchetta',
       price: 10.99,
       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus commodi accusantium iste et dicta recusandae in magnam. Eius, saepe. Cumque illum error aut dicta nisi eos itaque ab laboriosam sit?'
